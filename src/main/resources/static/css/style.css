@@ -104,3 +104,7 @@ input {
 .login-form button:hover {
     background-color: #4f51d3;
 }
+
+.login-form .error{
+	color:red;
+}

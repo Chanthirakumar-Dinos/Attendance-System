@@ -13,7 +13,7 @@
 </nav>
 
 <div class="header-section">
-    <form class="login-form">
+    <form th:action="@{/login}" method="post" class="login-form">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" placeholder="Enter your username" required>
         <br/><br/>
@@ -21,8 +21,24 @@
         <input type="password" id="password" name="password" placeholder="Enter your password" required>
         <br/><br/>
         <button type="submit">Login</button>
+         <p class="error" th:text="${errorMessage}"></p>
     </form>
 </div>
+
+<script th:inline="javascript">
+    var token = /*[[${token}]]*/ "";
+    var username = /*[[${username}]]*/ "";
+
+    if(token){
+    	localStorage.setItem("token", token);
+    	localStorage.setItem("username", username);
+    	 window.location.href = "/";
+    }
+    var localToken=localStorage.getItem("token");
+    if(localToken){
+    	 window.location.href = "/";
+    }
+</script>
 
 </body>
 </html>

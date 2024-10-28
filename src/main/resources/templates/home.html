@@ -11,8 +11,8 @@
     <a href="#" class="brand">Attendance System</a>
 
     <div class="profile">
-        <p>Hi, UserName</p>
-        <button class="login-btn">Logout</button>
+        <p>Hi, <span id="username"></span></p>
+        <button class="login-btn" onClick="logout()">Logout</button>
     </div>
 </nav>
 
@@ -22,5 +22,20 @@
         <p>This is a Home page</p>
     </div>
 </header>
+
+<script type="text/javascript">
+var token=localStorage.getItem("token");
+var username=localStorage.getItem("username");
+if(!token){
+	 window.location.href = "/login";
+}
+var usernameSpan=document.getElementById("username");
+usernameSpan.innerHTML=username;
+
+function logout(){
+	localStorage.clear();
+	window.location.href = "/login";
+}
+</script>
 </body>
 </html>
