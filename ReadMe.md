@@ -38,7 +38,7 @@ Admin User:
 
 
 Regular User:
-> Username: 
-> 
+> Username: user
+>
 > Password: userpassword
 
